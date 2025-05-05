@@ -1,0 +1,30 @@
+<div class="capsule-container">
+  <h2>📦 Cápsula del Tiempo</h2>
+
+  <!-- Mostrar solo el campo de entrada de texto cuando no haya mensaje desencriptado -->
+  <div *ngIf="!decryptedMessage">
+    <textarea [(ngModel)]="userMessage" placeholder="Escribe tu mensaje secreto..."></textarea>
+    <button (click)="sendMessage()">Enviar a la cápsula</button>
+  </div>
+
+  <!-- Mostrar mensaje encriptado y la cuenta atrás -->
+  <div *ngIf="encryptedMessage && !decryptedMessage" class="encrypted-section">
+    <p><strong>🔒 Mensaje encriptado:</strong></p>
+    <pre>{{ encryptedMessage }}</pre>
+    <p>⏳ Desencriptando en {{ countdown }} segundos...</p>
+  </div>
+
+  <!-- Mostrar mensaje desencriptado después de la cuenta atrás -->
+  <div *ngIf="decryptedMessage" class="decrypted-section">
+    <p><strong>✅ Mensaje desencriptado:</strong></p>
+    <pre class="fade-in">{{ decryptedMessage }}</pre>
+  </div>
+</div>
+
+<!-- Capa animada para la cuenta regresiva (cuando aún hay cuenta atrás) -->
+<div class="screen-overlay" *ngIf="countdown > 0 && encryptedMessage && !decryptedMessage">
+  <div class="matrix-bg">
+    <p class="countdown-text">⏳ {{ countdown }}</p>
+  </div>
+</div>
+

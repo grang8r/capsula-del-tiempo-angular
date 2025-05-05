@@ -1,0 +1,150 @@
+/* Ocultar elementos con la clase 'hidden' */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  
+  background-size: cover;  /* Cubre toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-attachment: fixed; /* Fija el fondo */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Pantalla completa con fondo negro */
+.screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Pantalla oscura con algo de transparencia */
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fondo animado de tipo Matrix */
+.matrix-bg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,255,0,0.2), rgba(0,255,0,0));
+  animation: flicker 0.2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+/* Estilo para el texto de la cuenta atrás */
+.countdown-text {
+  color: limegreen;
+  font-size: 72px;
+  font-weight: bold;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* Animación Matrix flicker */
+@keyframes flicker {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación de aparición suave del mensaje desencriptado */
+.fade-in {
+  animation: fadeInSlow 1s ease-in;
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo de la cápsula */
+.capsule-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #454545;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #fff;
+}
+
+/* Estilo para los mensajes */
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  margin-top: 20px;
+  border: 2px solid #3a3a3a;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  resize: none;
+}
+
+textarea::placeholder {
+  color: #aaa;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Sección del mensaje encriptado */
+.encrypted-section,
+.decrypted-section {
+  margin-top: 20px;
+}
+
+.encrypted-section pre,
+.decrypted-section pre {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.encrypted-section p,
+.decrypted-section p {
+  font-weight: bold;
+}
+
+.encrypted-section {
+  background: rgba(255, 0, 0, 0.1); /* Fondo suave para la sección de mensaje encriptado */
+}
+
+.decrypted-section {
+  background: rgba(0, 255, 0, 0.1); /* Fondo suave para la sección de mensaje desencriptado */
+}
+
