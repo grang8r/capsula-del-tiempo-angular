@@ -1,0 +1,75 @@
+# 📄 Documento de Requisitos Maestros (MRD)
+
+Cápsula del Tiempo en Angular 
+Prototipo de DApp  
+**Frontend:** Angular  
+**Estado:** Prototipo funcional (local, sin backend ni blockchain aún)
+
+---
+
+## 🎯 Objetivo del Proyecto
+
+Diseñar una DApp que permita a los usuarios enviar un mensaje secreto a una "cápsula del tiempo", que se desbloquea tras una cuenta regresiva. Esta cápsula simula una interacción con una blockchain, usando Angular como prototipo para el frontend.
+
+---
+
+## 🧩 Componentes Principales
+
+| Componente              | Descripción                                                                |
+|-------------------------|----------------------------------------------------------------------------|
+| **TimeCapsuleComponent** | Componente Angular que gestiona el flujo del mensaje (encriptado/desencriptado). |
+| **Interfaz de Usuario**  | Plantillas HTML con directivas Angular para entrada de datos, estado y resultado. |
+| **Simulación Blockchain**| En esta versión se simula con temporizadores y lógica local.               |
+
+---
+
+## 🔐 Requisitos Funcionales
+
+| ID     | Requisito                                                                                 |
+|--------|--------------------------------------------------------------------------------------------|
+| RF-01  | El usuario debe poder escribir un mensaje secreto en una caja de texto.                   |
+| RF-02  | Al enviar el mensaje, debe mostrarse un mensaje encriptado.                               |
+| RF-03  | Debe iniciarse una cuenta regresiva de 10 segundos.                                       |
+| RF-04  | Al terminar la cuenta, debe mostrarse el mensaje desencriptado automáticamente.           |
+| RF-05  | Mientras dure la cuenta atrás, debe visualizarse una capa animada (overlay).              |
+| RF-06  | Debe evitarse que el usuario vea el mensaje desencriptado antes de que la cuenta termine. |
+
+---
+
+## 🔒 Requisitos No Funcionales
+
+| ID     | Requisito                                                                                   |
+|--------|----------------------------------------------------------------------------------------------|
+| RNF-01 | El sistema debe ser rápido en la respuesta de UI (< 100ms por acción local).                |
+| RNF-02 | El prototipo debe estar construido íntegramente en Angular sin depender aún de un backend.  |
+| RNF-03 | El código debe ser mantenible y modular.                                                     |
+| RNF-04 | La lógica de encriptación/desencriptación debe ser simple y simulada.                        |
+
+---
+
+## 🧪 Criterios de Aceptación
+
+- ✅ El mensaje introducido por el usuario se refleja correctamente en el modelo (`userMessage`).
+- ✅ Al presionar “Enviar”, se encripta y se inicia la cuenta atrás.
+- ✅ A los 10 segundos exactos, se muestra el mensaje desencriptado.
+- ✅ Antes de esos 10 segundos, **no hay forma de acceder al mensaje**.
+
+---
+
+## 🚫 Limitaciones del Prototipo
+
+- No hay almacenamiento persistente (ni localStorage ni base de datos).
+- No hay conexión real con una blockchain.
+- La encriptación es simulada (no criptográficamente segura).
+- No hay gestión de usuarios ni autenticación.
+
+---
+
+## 🚀 Futuras Extensiones
+
+| Funcionalidad               | Descripción                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| Almacenamiento Blockchain  | Integración con smart contracts para guardar el mensaje en una red pública. |
+| Wallet (Metamask)          | Login del usuario mediante su cartera de Ethereum.                         |
+| Backend Node + DB          | Si se quiere usar base de datos intermedia para pruebas o almacenamiento.   |
+| NFT de cápsula             | Cada mensaje encapsulado podría generar un NFT único.                      |
